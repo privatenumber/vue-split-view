@@ -140,10 +140,6 @@ export default {
   &.isVertical {
     flex-direction: column;
   }
-
-  &.isLocked {
-    pointer-events: none;
-  }
 }
 
 .Handle {
@@ -181,6 +177,10 @@ export default {
 
 .SideA {
   overflow: auto;
+
+  &.isLocked {
+    pointer-events: none;
+  }
 }
 
 .SideB {

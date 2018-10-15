@@ -364,7 +364,7 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"SplitView":"SplitView_SplitView_Xotz4","isVertical":"SplitView_isVertical_3SaTc","isLocked":"SplitView_isLocked_25t7I","Handle":"SplitView_Handle_3Ok-I","isHorizontal":"SplitView_isHorizontal_dNcqd","SideA":"SplitView_SideA_33mCJ","SideB":"SplitView_SideB_1pOOh SplitView_SideA_33mCJ"};
+module.exports = {"SplitView":"SplitView_SplitView_Xotz4","isVertical":"SplitView_isVertical_3SaTc","Handle":"SplitView_Handle_3Ok-I","isHorizontal":"SplitView_isHorizontal_dNcqd","SideA":"SplitView_SideA_33mCJ","isLocked":"SplitView_isLocked_25t7I","SideB":"SplitView_SideB_1pOOh SplitView_SideA_33mCJ"};
 
 /***/ }),
 
@@ -715,7 +715,7 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"545da000-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/SplitView.vue?vue&type=template&id=641421f4&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"545da000-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/SplitView.vue?vue&type=template&id=061bf2f4&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"container",class:[_vm.$s.SplitView, ( _obj = {}, _obj[_vm.$s.isVertical] = _vm.isVertical, _obj )]},[_c('div',{class:[_vm.$s.SideA, ( _obj$1 = {}, _obj$1[_vm.$s.isLocked] = _vm.isDragging, _obj$1 )],style:(_vm.styleA)},[_vm._t("A")],2),_c('span',{class:[_vm.$s.Handle, ( _obj$2 = {}, _obj$2[_vm.$s.isVertical] = _vm.isVertical, _obj$2[_vm.$s.isHorizontal] = !_vm.isVertical, _obj$2 )],on:{"mousedown":function($event){$event.preventDefault();return _vm.dragStart($event)}}}),_c('div',{class:[_vm.$s.SideB, ( _obj$3 = {}, _obj$3[_vm.$s.isLocked] = _vm.isDragging, _obj$3 )]},[_vm._t("B")],2)])
 var _obj;
 var _obj$1;
@@ -724,7 +724,7 @@ var _obj$3;}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/SplitView.vue?vue&type=template&id=641421f4&
+// CONCATENATED MODULE: ./src/SplitView.vue?vue&type=template&id=061bf2f4&
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/defineProperty.js
 function _defineProperty(obj, key, value) {
