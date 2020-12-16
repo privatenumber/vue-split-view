@@ -14,7 +14,7 @@ const rollupConfig = {
 			css: false,
 		}),
 		postcss({
-			extract: 'styles.css',
+			extract: 'split-view.css',
 			plugins: [
 				presetEnv({ stage: 0, }),
 			],
