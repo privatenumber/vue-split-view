@@ -1,0 +1,59 @@
+
+.src-SplitView-Xotz {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%
+}
+.src-SplitView-Xotz.src-isVertical-3SaT {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+.src-Handle-3Ok- {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 1;
+  background: padding-box rgba(0,0,0,0.66667)
+}
+.src-Handle-3Ok-.src-isHorizontal-dNcq {
+    width: 11px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    margin: 0 -5px;
+    cursor: col-resize;
+}
+.src-Handle-3Ok-.src-isVertical-3SaT {
+    height: 11px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    margin: -5px 0;
+    cursor: row-resize;
+}
+.src-Handle-3Ok-:hover,
+  .src-Handle-3Ok-:active {
+    border-color: rgba(0,0,0,0.26667);
+}
+.src-Handle-3Ok-:active {
+    border-width: 4px;
+}
+.src-SideA-33mC {
+  overflow: auto
+}
+.src-SideA-33mC.src-isLocked-25t7 {
+    pointer-events: none;
+}
+.src-SideB-1pOO {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
