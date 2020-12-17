@@ -20,8 +20,8 @@ const rollupConfig = {
 			],
 		}),
 		babel(),
-		terser(),
-		filesize(),
+		isProd && terser(),
+		isProd && filesize(),
 	],
 	output: [
 		{
