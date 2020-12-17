@@ -10,7 +10,7 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "@babel/preset-env": "^7.12.11",
     "postcss": "^7.0.35",
     "postcss-preset-env": "^6.7.0",
     "rollup": "^2.35.1",
