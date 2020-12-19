@@ -15,7 +15,15 @@ const aggregateExports = (options) => ({
 		this.emitFile({
 			fileName: options.name,
 			type: 'asset',
-			source: options.exports.map(exp => `export * from '${exp}'`).join(';'),
+			source: options.exports
+				.map((expFrom) => {
+					if (typeof expFrom === 'string') {
+						return `export * from '${expFrom}'`;
+					}
+					const identifiers = (expFrom.identifiers || [expFrom.identifier]).join(',');
+					return `export {${identifiers}} from '${expFrom.from}'`;
+				})
+				.join(';'),
 		});
 	},
 });
@@ -50,7 +58,10 @@ const rollupConfig = [
 		aggregateExports({
 			name: `${label}.js`,
 			exports: [
-				`./${label}.esm.js`,
+				{
+					identifier: 'default',
+					from: `./${label}.esm.js`,
+				},
 				'./style.css',
 			],
 		}),
