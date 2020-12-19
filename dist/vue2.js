@@ -1,1 +1,1 @@
-export * from './vue2.esm.js';export * from './style.css'
+export {default} from './vue2.esm.js';export * from './style.css'
