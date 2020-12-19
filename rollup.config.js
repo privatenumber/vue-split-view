@@ -10,61 +10,44 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const rollupConfig = [
 	{
-		input: 'src/SplitView.vue',
-		plugins: [
-			vue2({
-				css: false,
-			}),
-			postcss({
-				extract: 'split-view.css',
-				plugins: [
-					presetEnv({ stage: 0, }),
-				],
-			}),
-			babel(),
-			isProd && terser(),
-			isProd && filesize(),
-		],
-		output: [
-			{
-				format: 'es',
-				file: 'dist/split-view.vue2.esm.js',
-			},
-			{
-				format: 'umd',
-				file: 'dist/split-view.vue2.umd.js',
-				name: 'SplitView',
-			},
-		],
+		label: 'vue2',
+		plugin: vue2,
 	},
 	{
-		input: 'src/SplitView.vue',
-		plugins: [
-			vue3({
-				css: false,
-			}),
-			postcss({
-				extract: 'split-view.css',
-				plugins: [
-					presetEnv({ stage: 0, }),
-				],
-			}),
-			babel(),
-			isProd && terser(),
-			isProd && filesize(),
-		],
-		output: [
-			{
-				format: 'es',
-				file: 'dist/split-view.vue3.esm.js',
+		label: 'vue3',
+		plugin: vue3,
+	},
+].map(({ label, plugin }) => ({
+	input: 'src/SplitView.vue',
+	plugins: [
+		plugin({
+			css: false,
+		}),
+		postcss({
+			extract: 'split-view.css',
+			plugins: [
+				presetEnv({ stage: 0, }),
+			],
+		}),
+		babel(),
+		isProd && terser(),
+		isProd && filesize(),
+	],
+	external: 'vue',
+	output: [
+		{
+			format: 'es',
+			file: `dist/split-view.${label}.esm.js`,
+		},
+		{
+			format: 'umd',
+			file: `dist/split-view.${label}.umd.js`,
+			name: 'SplitView',
+			globals: {
+				vue: 'vue',
 			},
-			{
-				format: 'umd',
-				file: 'dist/split-view.vue3.umd.js',
-				name: 'SplitView',
-			},
-		],
-	}
-];
+		},
+	],
+}));
 
 export default rollupConfig;

@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/vue-split-view.common.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c --environment NODE_ENV:production"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
