@@ -8,6 +8,18 @@ import vue3 from 'rollup-plugin-vue3';
 
 const isProd = process.env.NODE_ENV === 'production';
 
+// TODO extract out to plugin
+const aggregateExports = (options) => ({
+	name: 'aggregated-exports',
+	generateBundle() {
+		this.emitFile({
+			fileName: options.name,
+			type: 'asset',
+			source: options.exports.map(exp => `export * from '${exp}'`).join(';'),
+		});
+	},
+});
+
 const rollupConfig = [
 	{
 		label: 'vue2',
@@ -24,25 +36,34 @@ const rollupConfig = [
 			css: false,
 		}),
 		postcss({
-			extract: 'split-view.css',
+			extract: 'style.css',
 			minimize: true,
 			plugins: [
 				presetEnv({ stage: 0, }),
 			],
 		}),
-		babel(),
+		babel({
+			babelHelpers: 'bundled',
+		}),
 		isProd && terser(),
 		isProd && filesize(),
+		aggregateExports({
+			name: `${label}.js`,
+			exports: [
+				`./${label}.esm.js`,
+				'./style.css',
+			],
+		}),
 	],
 	external: 'vue',
 	output: [
 		{
 			format: 'es',
-			file: `dist/split-view.${label}.esm.js`,
+			file: `dist/${label}.esm.js`,
 		},
 		{
 			format: 'umd',
-			file: `dist/split-view.${label}.umd.js`,
+			file: `dist/${label}.umd.js`,
 			name: 'SplitView',
 			globals: {
 				vue: 'vue',
