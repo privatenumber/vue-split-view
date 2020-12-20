@@ -4,7 +4,8 @@
   "license": "MIT",
   "main": "dist/vue-split-view.common.js",
   "scripts": {
-    "build": "rollup -c --environment NODE_ENV:production"
+    "build": "rollup -c --environment NODE_ENV:production",
+    "lint": "eslint ."
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -12,8 +13,10 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@pvtnbr/eslint-config-vue": "^0.0.1",
     "@rollup/plugin-babel": "^5.2.2",
     "@vue/compiler-sfc": "^3.0.4",
+    "eslint": "^7.16.0",
     "postcss": "^7.0.35",
     "postcss-preset-env": "^6.7.0",
     "rollup": "^2.35.1",
@@ -24,5 +27,8 @@
     "rollup-plugin-vue3": "npm:rollup-plugin-vue@^6.0.0",
     "vue": "^2.6.12",
     "vue-template-compiler": "^2.6.12"
+  },
+  "eslintConfig": {
+    "extends": "@pvtnbr/eslint-config-vue"
   }
 }
