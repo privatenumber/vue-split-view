@@ -2,6 +2,9 @@
   "name": "vue-split-view",
   "version": "0.1.0",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "main": "dist/vue-split-view.common.js",
   "scripts": {
     "build": "rollup -c --environment NODE_ENV:production",
@@ -13,7 +16,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "@pvtnbr/eslint-config-vue": "^0.0.1",
+    "@pvtnbr/eslint-config-vue": "^0.1.0",
     "@rollup/plugin-babel": "^5.2.2",
     "@vue/compiler-sfc": "^3.0.4",
     "eslint": "^7.16.0",
