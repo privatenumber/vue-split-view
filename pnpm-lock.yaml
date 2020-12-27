@@ -8,6 +8,7 @@ devDependencies:
   postcss: 7.0.35
   postcss-preset-env: 6.7.0
   rollup: 2.35.1
+  rollup-plugin-aggregate-exports: 1.0.0
   rollup-plugin-filesize: 9.1.0
   rollup-plugin-postcss: 4.0.0_postcss@7.0.35
   rollup-plugin-terser: 7.0.2_rollup@2.35.1
@@ -5646,6 +5647,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
+  /rollup-plugin-aggregate-exports/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha512-erI9ihQ92gAIqWH3l6kkO7hSYBMaMX9iH7pG3xEdS8L0DacTlTN/gn/7g2sTk1ig1r5PMLpYrdWqpIuRLgonHg==
   /rollup-plugin-filesize/9.1.0:
     dependencies:
       '@babel/runtime': 7.12.5
@@ -6543,6 +6548,7 @@ specifiers:
   postcss: ^7.0.35
   postcss-preset-env: ^6.7.0
   rollup: ^2.35.1
+  rollup-plugin-aggregate-exports: ^1.0.0
   rollup-plugin-filesize: ^9.1.0
   rollup-plugin-postcss: ^4.0.0
   rollup-plugin-terser: ^7.0.2
