@@ -1,32 +1,13 @@
 import babel from '@rollup/plugin-babel';
-import {terser} from 'rollup-plugin-terser';
+import { terser } from 'rollup-plugin-terser';
 import filesize from 'rollup-plugin-filesize';
-import postcss from 'rollup-plugin-postcss'
+import postcss from 'rollup-plugin-postcss';
 import presetEnv from 'postcss-preset-env';
+import aggregateExports from 'rollup-plugin-aggregate-exports';
 import vue2 from 'rollup-plugin-vue2';
 import vue3 from 'rollup-plugin-vue3';
 
-const isProd = process.env.NODE_ENV === 'production';
-
-// TODO extract out to plugin
-const aggregateExports = (options) => ({
-	name: 'aggregated-exports',
-	generateBundle() {
-		this.emitFile({
-			fileName: options.name,
-			type: 'asset',
-			source: options.exports
-				.map((expFrom) => {
-					if (typeof expFrom === 'string') {
-						return `export * from '${expFrom}'`;
-					}
-					const identifiers = (expFrom.identifiers || [expFrom.identifier]).join(',');
-					return `export {${identifiers}} from '${expFrom.from}'`;
-				})
-				.join(';'),
-		});
-	},
-});
+const isProduction = process.env.NODE_ENV === 'production';
 
 const rollupConfig = [
 	{
@@ -47,16 +28,16 @@ const rollupConfig = [
 			extract: 'style.css',
 			minimize: true,
 			plugins: [
-				presetEnv({ stage: 0, }),
+				presetEnv({ stage: 0 }),
 			],
 		}),
 		babel({
 			babelHelpers: 'bundled',
 		}),
-		isProd && terser(),
-		isProd && filesize(),
+		isProduction && terser(),
+		isProduction && filesize(),
 		aggregateExports({
-			name: `${label}.js`,
+			fileName: `${label}.js`,
 			exports: [
 				{
 					identifier: 'default',

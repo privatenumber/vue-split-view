@@ -2,10 +2,10 @@
 	<div id="app">
 		<div :class="$s.Container">
 			<split-view direction="vertical">
-				<template slot="A">
+				<template #A>
 					Slot A
 				</template>
-				<template slot="B">
+				<template #B>
 					Slot B
 				</template>
 			</split-view>
@@ -13,32 +13,32 @@
 
 		<div :class="$s.Container">
 			<split-view direction="horizontal">
-				<template slot="A">
+				<template #A>
 					Slot A
 				</template>
-				<template slot="B">
+				<template #B>
 					Slot B
 				</template>
-
 			</split-view>
 		</div>
 
 		<div :class="$s.Container">
 			<split-view direction="horizontal">
-				<template slot="A">
+				<template #A>
 					Slot A
 				</template>
-				<split-view
-					slot="B"
-					direction="vertical"
-				>
-					<template slot="A">
-						Slot A
-					</template>
-					<template slot="B">
-						Slot B
-					</template>
-				</split-view>
+				<template #B>
+					<split-view
+						direction="vertical"
+					>
+						<template #A>
+							Slot A
+						</template>
+						<template #B>
+							Slot B
+						</template>
+					</split-view>
+				</template>
 			</split-view>
 		</div>
 
@@ -49,33 +49,34 @@
 				a-min="50px"
 				a-max="200px"
 			>
-				<template slot="A">
+				<template #A>
 					Slot A
 				</template>
-				<split-view
-					slot="B"
-					direction="vertical"
-				>
-					<template slot="A">
-						Slot A
-					</template>
-					<template slot="B">
-						Slot B
-					</template>
-				</split-view>
+				<template #B>
+					<split-view
+						direction="vertical"
+					>
+						<template #A>
+							Slot A
+						</template>
+						<template #B>
+							Slot B
+						</template>
+					</split-view>
+				</template>
 			</split-view>
 		</div>
 	</div>
 </template>
 
 <script>
-import SplitView from "./SplitView.vue";
+import SplitView from '../src/SplitView.vue';
 
 export default {
-	name: "app",
+	name: 'App',
 	components: {
-		SplitView
-	}
+		SplitView,
+	},
 };
 </script>
 
@@ -93,7 +94,6 @@ body {
 	margin-top: 60px;
 }
 </style>
-
 
 <style module="$s">
 .Container {
