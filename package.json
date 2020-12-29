@@ -24,6 +24,14 @@
 		"dev": "vite dev",
 		"lint": "eslint ."
 	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": "eslint"
+	},
 	"peerDependencies": {
 		"vue": "^2.6 || 3"
 	},
@@ -34,6 +42,8 @@
 		"@rollup/plugin-babel": "^5.2.2",
 		"@vue/compiler-sfc": "^3.0.4",
 		"eslint": "^7.16.0",
+		"husky": "^4.3.6",
+		"lint-staged": "^10.5.3",
 		"postcss": "^8.2.1",
 		"postcss-preset-env": "^6.7.0",
 		"rollup": "^2.35.1",
