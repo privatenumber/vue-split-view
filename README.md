@@ -7,6 +7,33 @@ Create a resizable split-view to partition the UI.
 npm i vue-split-view
 ```
 
+## 🚦 Quick Setup
+
+### Bundler
+
+Vue.js 3
+```js
+import VueSplitView from 'vue-split-view'
+```
+
+Vue.js 2
+```js
+import VueSplitView from 'vue-split-view/dist/vue2'
+```
+
+### Browser
+- Load the CSS stylesheet: `vue-split-view/dist/style.css`
+
+#### ESM
+```js
+import VueSplitView from 'vue-split-view/dist/vue3.esm.js'
+```
+
+#### UMD
+```
+vue-split-view/dist/vue3.umd.js
+```
+
 ## 👨🏻‍🏫 Examples
 
 ### Horizontal split
