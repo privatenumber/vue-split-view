@@ -70,10 +70,9 @@
 </template>
 
 <script>
-import SplitView from '../src/SplitView.vue';
+import SplitView from './src/SplitView.vue';
 
 export default {
-	name: 'App',
 	components: {
 		SplitView,
 	},
@@ -86,7 +85,7 @@ body {
 	margin: 0;
 }
 #app {
-	font-family: "Avenir", Helvetica, Arial, sans-serif;
+	font-family: system-ui;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;

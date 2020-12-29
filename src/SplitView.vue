@@ -45,23 +45,21 @@ function getPosition(element) {
 }
 
 export default {
-	name: 'SplitView',
-
 	props: {
 		direction: {
 			type: String,
 			default: 'horizontal',
 			validator: direction => ['vertical', 'horizontal'].includes(direction),
 		},
-		AInit: {
+		aInit: {
 			type: String,
 			default: '50%',
 		},
-		AMin: {
+		aMin: {
 			type: String,
 			default: 'none',
 		},
-		AMax: {
+		aMax: {
 			type: String,
 			default: 'none',
 		},
@@ -70,7 +68,7 @@ export default {
 	data() {
 		return {
 			isDragging: false,
-			offset: this.AInit,
+			offset: this.aInit,
 		};
 	},
 
@@ -88,8 +86,8 @@ export default {
 			const property = this.isVertical ? 'Height' : 'Width';
 			return {
 				[property.toLowerCase()]: this.offsetA,
-				[`min${property}`]: this.AMin,
-				[`max${property}`]: this.AMax,
+				[`min${property}`]: this.aMin,
+				[`max${property}`]: this.aMax,
 			};
 		},
 	},
