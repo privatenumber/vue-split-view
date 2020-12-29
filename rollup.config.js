@@ -9,27 +9,39 @@ import vue3 from 'rollup-plugin-vue3';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
+const postcssPlugins = [
+	presetEnv({ stage: 0 }),
+];
+
 const rollupConfig = [
 	{
 		label: 'vue2',
-		plugin: vue2,
+		vue: vue2({
+			css: false,
+			style: {
+				postcssModulesOptions: {
+					generateScopedName: '[hash:base64:4]',
+				},
+				postcssPlugins,
+			},
+		}),
 	},
 	{
 		label: 'vue3',
-		plugin: vue3,
+		vue: vue3({
+			cssModulesOptions: {
+				generateScopedName: '[hash:base64:4]',
+			},
+		}),
 	},
-].map(({ label, plugin }) => ({
+].map(({ label, vue }) => ({
 	input: 'src/SplitView.vue',
 	plugins: [
-		plugin({
-			css: false,
-		}),
+		vue,
 		postcss({
 			extract: 'style.css',
 			minimize: true,
-			plugins: [
-				presetEnv({ stage: 0 }),
-			],
+			plugins: postcssPlugins,
 		}),
 		babel({
 			babelHelpers: 'bundled',

@@ -1,5 +1,5 @@
 import Vue from 'vue/dist/vue.esm.js';
-import SplitView from '../dist/vue2.esm.js';
+import SplitView from '../dist/vue2.js';
 
 // eslint-disable-next-line no-new
 new Vue({
