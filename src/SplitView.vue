@@ -20,9 +20,11 @@
 			}]"
 			@mousedown.prevent="dragStart"
 		/>
-		<div :class="[$s.SideB, {
+		<div
+			:class="[$s.SideB, {
 				[$s.isLocked]: isDragging
-			}]">
+			}]"
+		>
 			<slot name="B" />
 		</div>
 	</div>
@@ -43,90 +45,88 @@ function getPosition(element) {
 }
 
 export default {
-	name: "SplitView",
-
 	props: {
 		direction: {
 			type: String,
-			default: "horizontal",
-			validator: direction => ["vertical", "horizontal"].includes(direction)
+			default: 'horizontal',
+			validator: direction => ['vertical', 'horizontal'].includes(direction),
 		},
-		AInit: {
+		aInit: {
 			type: String,
-			default: "50%"
+			default: '50%',
 		},
-		AMin: {
+		aMin: {
 			type: String,
-			default: "none"
+			default: 'none',
 		},
-		AMax: {
+		aMax: {
 			type: String,
-			default: "none"
-		}
+			default: 'none',
+		},
 	},
 
 	data() {
 		return {
 			isDragging: false,
-			offset: this.AInit
+			offset: this.aInit,
 		};
 	},
 
 	computed: {
 		isVertical() {
-			return this.direction === "vertical";
+			return this.direction === 'vertical';
 		},
 		offsetA() {
-			if (typeof this.offset === "string") {
+			if (typeof this.offset === 'string') {
 				return this.offset;
 			}
 			return `${this.offset}px`;
 		},
 		styleA() {
-			const property = this.isVertical ? "Height" : "Width";
+			const property = this.isVertical ? 'Height' : 'Width';
 			return {
 				[property.toLowerCase()]: this.offsetA,
-				[`min${property}`]: this.AMin,
-				[`max${property}`]: this.AMax
+				[`min${property}`]: this.aMin,
+				[`max${property}`]: this.aMax,
 			};
-		}
+		},
 	},
 
 	methods: {
 		dragStart() {
 			this.isDragging = true;
-			window.addEventListener("mousemove", this.dragging, { passive: true });
-			window.addEventListener("mouseup", this.dragStop, {
+			window.addEventListener('mousemove', this.dragging, { passive: true });
+			window.addEventListener('mouseup', this.dragStop, {
 				passive: true,
-				once: true
+				once: true,
 			});
 		},
 
 		dragStop() {
-			window.removeEventListener("mousemove", this.dragging);
+			window.removeEventListener('mousemove', this.dragging);
 			this.isDragging = false;
 		},
 
-		mouseOffset(e) {
+		mouseOffset({ pageX, pageY }) {
 			const { container } = this.$refs;
 			const containerOffset = getPosition(container);
 			let offset;
 
 			if (this.isVertical) {
-				offset = e.pageY - containerOffset.y;
+				offset = pageY - containerOffset.y;
 				offset = Math.min(offset, container.offsetHeight);
 			} else {
-				offset = e.pageX - containerOffset.x;
+				offset = pageX - containerOffset.x;
 				offset = Math.min(offset, container.offsetWidth);
 			}
 
 			return Math.max(offset, 0);
 		},
 
-		dragging(e) {
-			this.offset = this.mouseOffset(e);
-		}
-	}
+		dragging(event) {
+			this.offset = this.mouseOffset(event);
+		},
+	},
 };
 </script>
 
