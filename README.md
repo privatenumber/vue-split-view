@@ -11,12 +11,12 @@ npm i vue-split-view
 
 ### Bundler
 
-Vue.js 3
+#### Vue.js 3
 ```js
 import VueSplitView from 'vue-split-view'
 ```
 
-Vue.js 2
+#### Vue.js 2
 ```js
 import VueSplitView from 'vue-split-view/dist/vue2'
 ```
