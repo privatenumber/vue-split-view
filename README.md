@@ -2,6 +2,8 @@
 
 Create a resizable split-view to partition the UI.
 
+👉 [CodePen Demo](https://codepen.io/privatenumber/pen/xxEYxgB)
+
 ## 🚀 Install
 ```sh
 npm i vue-split-view
