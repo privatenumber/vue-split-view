@@ -102,3 +102,46 @@ vue-split-view/dist/vue3.umd.js
 	</template>
 </split-view>
 ```
+
+## 🎛 API
+
+
+### Props
+
+#### direction
+
+Type: `String`
+
+Default: `horizontal`
+
+The direction the split-view should be partitioned in. Possible values are: `horizontal`, `vertical`.
+
+#### a-init
+
+Type: `String`
+
+Default: `none`
+
+The initial width/height of the first partition. The second partition fills the remaining width/height. Numeric values translate to pixels, string values are directly used for the `width`/`height` CSS property.
+
+#### a-min
+Type: `String`
+
+Default: `none`
+
+The minimum width/height of the first partition. This influences the second partition's maximum width/height. The value is directly used for the `min-width`/`min-height` CSS property.
+
+#### a-max
+Type: `String`
+
+Default: `none`
+
+The maxium width/height of the first partition. This influences the second partition's minimum width/height. The value is directly used for the `max-width`/`max-height` CSS property.
+
+### Slots
+
+#### A
+Content of the first partition.
+
+#### B
+Content of the second partition.
